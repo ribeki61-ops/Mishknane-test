@@ -1,0 +1,88 @@
+/* ============================================================
+   equipe.css — Section équipe : team cards avec avatars initiales
+   ============================================================ */
+
+.section-equipe { background: var(--bg-warm); }
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.team-card {
+  background: var(--bg-paper);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border-soft);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  transition: all var(--d-base) var(--ease);
+}
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-mid);
+}
+
+/* Avatar initiales */
+.team-avatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: var(--plum);
+  color: var(--text-on-dark);
+  display: grid; place-items: center;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  transition: transform var(--d-base) var(--ease), background var(--d-base) var(--ease);
+  flex-shrink: 0;
+}
+.team-card:hover .team-avatar {
+  background: var(--honey);
+  transform: scale(1.08);
+}
+
+/* Variantes de couleur pour les avatars */
+.team-avatar.rose   { background: var(--plum-soft); }
+.team-avatar.honey  { background: var(--honey); }
+.team-avatar.muted  { background: var(--text-muted); }
+
+.team-name {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--text);
+  margin: 0;
+}
+.team-role {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--honey);
+  margin: -0.5rem 0 0;
+}
+.team-bio {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Badge années d'expérience */
+.team-badge {
+  display: inline-block;
+  background: var(--bg-warm);
+  color: var(--plum);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--border-soft);
+  margin-top: auto;
+}

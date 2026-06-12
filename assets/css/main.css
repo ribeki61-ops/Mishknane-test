@@ -1,0 +1,84 @@
+/* ============================================================
+   EHPAD MISHKANE — main.css
+   ⚠️  Les @import DOIVENT être en premier (règle CSS spec).
+   Le :root avec les tokens vient ensuite.
+   ============================================================ */
+
+/* ---------- IMPORTS (en premier, obligatoire) ---------- */
+@import 'base.css';
+@import 'header.css';
+@import 'hero.css';
+@import 'presentation.css';
+@import 'soins.css';
+@import 'chambres.css';
+@import 'chambre-3d.css';
+@import 'equipe.css';
+@import 'temoignages.css';
+@import 'vie-quotidienne.css';
+@import 'tarifs.css';
+@import 'journal.css';
+@import 'faq.css';
+@import 'recrutement.css';
+@import 'contact.css';
+@import 'footer.css';
+@import 'floats.css';
+@import 'preloader.css';
+@import 'responsive.css';
+
+/* ---------- DESIGN TOKENS ---------- */
+:root {
+  /* Backgrounds */
+  --bg-cream:  #FAF5EC;
+  --bg-warm:   #F4EAD8;
+  --bg-deep:   #ECDCC4;
+  --bg-paper:  #FDFAF3;
+
+  /* Couleurs marque */
+  --plum:       #5E3144;
+  --plum-deep:  #3D1F2D;
+  --plum-soft:  #7B4A5E;
+  --honey:      #B8835A;
+  --honey-light:#D4A47A;
+  --rose:       #D4A6A6;
+  --rose-soft:  #ECCFCF;
+
+  /* Texte */
+  --text:       #2D1F2A;
+  --text-muted: #6B5566;
+  --text-soft:  #9B8A95;
+  --text-on-dark: #FAF5EC;
+
+  /* Bordures */
+  --border-soft:   rgba(94,49,68,0.10);
+  --border-mid:    rgba(94,49,68,0.18);
+  --border-strong: rgba(94,49,68,0.30);
+
+  /* Typographie */
+  --font-display: 'Fraunces','Cormorant Garamond',Georgia,serif;
+  --font-body:    'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+
+  /* Rayons */
+  --r-sm:   8px;
+  --r-md:   14px;
+  --r-lg:   20px;
+  --r-xl:   32px;
+  --r-pill: 999px;
+
+  /* Ombres teintées plum */
+  --shadow-xs: 0 1px 3px rgba(94,49,68,0.06);
+  --shadow-sm: 0 4px 16px rgba(94,49,68,0.08);
+  --shadow-md: 0 12px 40px rgba(94,49,68,0.12);
+  --shadow-lg: 0 32px 80px rgba(94,49,68,0.18);
+
+  /* Transitions */
+  --ease:      cubic-bezier(0.22,1,0.36,1);
+  --ease-soft: cubic-bezier(0.4,0,0.2,1);
+  --d-fast:    200ms;
+  --d-base:    350ms;
+  --d-slow:    600ms;
+
+  /* Layout */
+  --container:        1200px;
+  --container-narrow: 920px;
+  --header-h:         76px;
+}

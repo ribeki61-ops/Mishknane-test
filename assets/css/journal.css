@@ -1,0 +1,51 @@
+/* ============================================================
+   journal.css — Section Journal de Mishkane (articles/blog)
+   ============================================================ */
+
+.section-journal { background: var(--bg-cream); }
+
+.journal-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.journal-card {
+  background: var(--bg-paper);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border-soft);
+  overflow: hidden;
+  transition: all var(--d-base) var(--ease);
+}
+.journal-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--border-mid); }
+
+.journal-link { display: block; text-decoration: none; color: inherit; height: 100%; }
+.journal-link:hover { color: inherit; }
+
+.journal-img { aspect-ratio: 16/10; overflow: hidden; background: var(--bg-warm); }
+.journal-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 800ms var(--ease); }
+.journal-card:hover .journal-img img { transform: scale(1.05); }
+
+.journal-body { padding: 1.75rem; }
+
+.journal-meta {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.8125rem; color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+.journal-meta .tag  { color: var(--honey); font-weight: 500; }
+.journal-meta .dot  { opacity: 0.5; }
+
+.journal-card h3 { margin-bottom: 0.6rem; font-size: 1.25rem; transition: color var(--d-fast) var(--ease); }
+.journal-card:hover h3 { color: var(--plum); }
+.journal-card p { font-size: 0.9375rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.6; }
+
+.link-arrow {
+  display: inline-flex; align-items: center; gap: 0.4em;
+  color: var(--plum); font-weight: 500; font-size: 0.9rem;
+  transition: gap var(--d-base) var(--ease);
+}
+.journal-card:hover .link-arrow { gap: 0.7em; }
+
+.journal-cta { text-align: center; }

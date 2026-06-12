@@ -1,0 +1,131 @@
+/* ============================================================
+   floats.css — Éléments flottants : cookie, téléphone, back-to-top
+   ============================================================ */
+
+/* ---------- BOUTON TÉLÉPHONE FLOTTANT (mobile) ---------- */
+.float-phone {
+  position: fixed;
+  bottom: 5rem;
+  right: 1.25rem;
+  z-index: 90;
+  width: 54px; height: 54px;
+  background: var(--plum);
+  color: var(--text-on-dark);
+  border-radius: 50%;
+  display: grid; place-items: center;
+  box-shadow: 0 4px 20px rgba(94,49,68,0.40);
+  transition: transform var(--d-base) var(--ease), box-shadow var(--d-base) var(--ease), background var(--d-base) var(--ease);
+  text-decoration: none;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+}
+.float-phone.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+.float-phone:hover { background: var(--plum-deep); transform: scale(1.08); box-shadow: 0 8px 32px rgba(94,49,68,0.5); color: var(--text-on-dark); }
+.float-phone svg { width: 24px; height: 24px; }
+
+/* Animation pulse sur le bouton téléphone */
+.float-phone::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: var(--plum);
+  opacity: 0.3;
+  animation: phonePulse 2.5s ease-out infinite;
+}
+@keyframes phonePulse {
+  0%   { transform: scale(1);   opacity: 0.3; }
+  70%  { transform: scale(1.5); opacity: 0; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* ---------- BACK TO TOP ---------- */
+.back-to-top {
+  position: fixed;
+  bottom: 1.25rem; right: 1.25rem;
+  z-index: 90;
+  width: 44px; height: 44px;
+  background: var(--bg-paper);
+  color: var(--plum);
+  border-radius: var(--r-md);
+  display: grid; place-items: center;
+  border: 1px solid var(--border-mid);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: all var(--d-base) var(--ease);
+}
+.back-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.back-to-top:hover { background: var(--plum); color: var(--text-on-dark); transform: translateY(-2px); }
+.back-to-top svg { width: 18px; height: 18px; }
+
+/* ---------- BANDEAU COOKIE RGPD ---------- */
+.cookie-banner {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 200;
+  background: var(--plum-deep);
+  color: var(--text-on-dark);
+  padding: 1.25rem 1.5rem;
+  transform: translateY(100%);
+  transition: transform var(--d-slow) var(--ease);
+  box-shadow: 0 -4px 32px rgba(45,31,42,0.3);
+}
+.cookie-banner.is-visible { transform: translateY(0); }
+
+.cookie-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.cookie-text {
+  flex: 1;
+  min-width: 260px;
+  font-size: 0.875rem;
+  color: rgba(250,245,236,0.85);
+  line-height: 1.5;
+}
+.cookie-text a { color: var(--rose-soft); text-decoration: underline; text-underline-offset: 2px; }
+.cookie-text a:hover { color: var(--text-on-dark); }
+
+.cookie-actions { display: flex; gap: 0.75rem; flex-shrink: 0; flex-wrap: wrap; }
+.cookie-accept {
+  background: var(--bg-cream);
+  color: var(--plum);
+  border: none;
+  padding: 0.65em 1.4em;
+  border-radius: var(--r-pill);
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--d-fast) var(--ease);
+}
+.cookie-accept:hover { background: var(--rose-soft); }
+.cookie-refuse {
+  background: transparent;
+  color: rgba(250,245,236,0.65);
+  border: 1px solid rgba(250,245,236,0.25);
+  padding: 0.65em 1.2em;
+  border-radius: var(--r-pill);
+  font-family: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--d-fast) var(--ease);
+}
+.cookie-refuse:hover { color: var(--text-on-dark); border-color: rgba(250,245,236,0.5); }

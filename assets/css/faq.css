@@ -1,0 +1,90 @@
+/* ============================================================
+   faq.css — Section FAQ accordéon questions fréquentes
+   ============================================================ */
+
+.section-faq { background: var(--bg-warm); }
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--bg-paper);
+  border-radius: var(--r-md);
+  border: 1px solid var(--border-soft);
+  overflow: hidden;
+  transition: border-color var(--d-base) var(--ease), box-shadow var(--d-base) var(--ease);
+}
+.faq-item[open] {
+  border-color: var(--border-mid);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  list-style: none;
+  transition: background var(--d-fast) var(--ease);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { background: var(--bg-warm); }
+
+.faq-question {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--bg-warm);
+  border: 1px solid var(--border-soft);
+  display: grid; place-items: center;
+  color: var(--plum);
+  transition: all var(--d-base) var(--ease);
+}
+.faq-icon svg { width: 18px; height: 18px; transition: transform var(--d-base) var(--ease); }
+.faq-item[open] .faq-icon { background: var(--plum); border-color: var(--plum); color: var(--bg-cream); }
+.faq-item[open] .faq-icon svg { transform: rotate(45deg); }
+
+.faq-answer {
+  padding: 0 1.5rem 1.5rem;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.faq-answer p { margin: 0; }
+.faq-answer p + p { margin-top: 0.75rem; }
+
+/* ── FAQ animation (JS-enhanced) ── */
+.faq-answer,
+.aide-item > p {
+  transition: height 340ms cubic-bezier(0.22,1,0.36,1);
+}
+.details-inner {
+  padding: 0 1.5rem 1.5rem;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.details-inner p { margin: 0; }
+.details-inner p + p { margin-top: 0.75rem; }
+
+/* Overrides padding puisque l'inner le gère maintenant */
+.faq-answer { padding: 0 !important; }
+.aide-item > p { padding: 0 !important; }
+
+/* Icon animation */
+.faq-item[open] .faq-question { color: var(--plum); }

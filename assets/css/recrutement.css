@@ -1,0 +1,219 @@
+/* ============================================================
+   recrutement.css — Section recrutement des équipes soignantes
+   ============================================================ */
+
+.section-recrutement {
+  background: var(--bg-paper);
+  position: relative;
+  overflow: hidden;
+}
+
+/* demi-cercle décoratif en fond */
+.section-recrutement::before {
+  content: '';
+  position: absolute;
+  top: -120px; right: -120px;
+  width: 480px; height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(184,131,90,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Layout 2 colonnes ── */
+.recru-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+
+/* ── Colonne gauche : pitch + valeurs ── */
+.recru-pitch h2 { margin-bottom: 0.75rem; }
+
+.recru-values {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.recru-value-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.recru-val-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 48px; height: 48px;
+  border-radius: var(--r-md);
+  background: var(--bg-warm);
+  border: 1px solid var(--border-soft);
+  color: var(--plum);
+  transition: background var(--d-base) var(--ease), color var(--d-base) var(--ease);
+}
+.recru-val-icon svg { width: 22px; height: 22px; }
+
+.recru-value-item:hover .recru-val-icon {
+  background: var(--plum);
+  color: var(--rose-soft);
+}
+
+.recru-val-text strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+.recru-val-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ── Colonne droite : offres ── */
+.recru-offres-title {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--honey);
+  margin: 0 0 1.5rem;
+  padding-left: 26px;
+  position: relative;
+}
+.recru-offres-title::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  width: 16px; height: 1px;
+  background: var(--honey);
+}
+
+.offres-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Carte d'offre */
+.offre-card {
+  background: var(--bg-paper);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-lg);
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: all var(--d-base) var(--ease);
+  box-shadow: var(--shadow-xs);
+}
+.offre-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: linear-gradient(to bottom, var(--honey), var(--plum));
+  border-radius: 4px 0 0 4px;
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform var(--d-slow) var(--ease);
+}
+.offre-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-mid);
+}
+.offre-card:hover::before { transform: scaleY(1); }
+
+.offre-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+.offre-contrat, .offre-dispo {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  padding: 4px 11px;
+  border-radius: var(--r-pill);
+}
+.offre-contrat {
+  background: rgba(184,131,90,0.12);
+  color: var(--honey);
+  text-transform: uppercase;
+}
+.offre-dispo {
+  background: rgba(94,49,68,0.08);
+  color: var(--plum-soft);
+}
+
+.offre-card h4 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--text);
+  margin: 0.25rem 0 0.4rem;
+}
+.offre-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.offre-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-soft);
+  margin-top: auto;
+}
+.offre-horaire {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.offre-horaire svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+/* ── Candidature spontanée ── */
+.recru-spontanee {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 1.25rem;
+  border: 1px dashed var(--border-mid);
+  border-radius: var(--r-md);
+}
+.recru-spontanee a {
+  color: var(--plum);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.recru-spontanee a:hover { color: var(--honey); }
+
+/* Responsive */
+@media (min-width: 900px) {
+  .recru-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+}

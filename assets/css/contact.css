@@ -1,0 +1,128 @@
+/* ============================================================
+   contact.css — Section contact : form Formspree + infos + map
+   ============================================================ */
+
+.section-contact { background: var(--bg-warm); }
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+/* Bloc infos */
+.contact-info {
+  background: var(--bg-paper);
+  padding: 2rem;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border-soft);
+  height: fit-content;
+}
+.info-block { padding-bottom: 1.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-soft); }
+.info-block:last-of-type { border-bottom: none; padding-bottom: 0; }
+
+.info-label {
+  display: block;
+  font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--honey); font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.info-block address { font-style: normal; font-size: 1rem; line-height: 1.6; }
+.info-block address strong { color: var(--plum); }
+.info-link { display: inline-block; font-size: 1.125rem; font-weight: 500; color: var(--plum); letter-spacing: -0.01em; }
+.info-link:hover { color: var(--honey); }
+.info-meta { display: block; font-size: 0.8125rem; color: var(--text-muted); margin-top: 0.25rem; }
+
+/* Map */
+.map-wrapper {
+  margin-top: 1.75rem;
+  aspect-ratio: 4/3;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+}
+.map-wrapper iframe { width: 100%; height: 100%; border: 0; filter: saturate(0.85) contrast(0.95); }
+
+/* Formulaire */
+.contact-form {
+  background: var(--bg-paper);
+  padding: 2rem;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border-soft);
+}
+.form-group { margin-bottom: 1.25rem; }
+.form-row { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+
+.form-group label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.45rem; color: var(--text); }
+.req { color: var(--honey); }
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%; padding: 0.85em 1em;
+  font-family: inherit; font-size: 0.95rem; color: var(--text);
+  background: var(--bg-cream);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-sm);
+  transition: border-color var(--d-fast) var(--ease), background var(--d-fast) var(--ease), box-shadow var(--d-fast) var(--ease);
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none; border-color: var(--plum); background: var(--bg-paper);
+  box-shadow: 0 0 0 3px rgba(94,49,68,0.1);
+}
+.form-group textarea { resize: vertical; min-height: 110px; }
+.form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%235E3144' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+.form-check { display: flex; align-items: flex-start; gap: 0.75rem; margin: 1.5rem 0; }
+.form-check input { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: var(--plum); }
+.form-check label { font-size: 0.8125rem; color: var(--text-muted); line-height: 1.5; margin: 0; font-weight: 400; }
+
+.form-status { margin-top: 1rem; padding: 0.85rem 1rem; border-radius: var(--r-sm); font-size: 0.9rem; display: none; }
+.form-status.success { display: block; background: rgba(123,145,100,0.15); color: #4d6038; border: 1px solid rgba(123,145,100,0.3); }
+.form-status.error   { display: block; background: rgba(94,49,68,0.08); color: var(--plum); border: 1px solid rgba(94,49,68,0.2); }
+
+/* ── Validation inline ── */
+.form-group.has-error input,
+.form-group.has-error select,
+.form-group.has-error textarea {
+  border-color: #C0392B;
+  background: rgba(192,57,43,0.04);
+  box-shadow: 0 0 0 3px rgba(192,57,43,0.1);
+}
+.form-group.is-valid input,
+.form-group.is-valid select,
+.form-group.is-valid textarea {
+  border-color: rgba(74,140,60,0.6);
+  background: rgba(74,140,60,0.03);
+}
+.field-error {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.8rem;
+  color: #C0392B;
+  font-weight: 500;
+}
+
+/* Char count */
+.char-count {
+  display: block;
+  text-align: right;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  margin-top: 4px;
+}
+.char-count.near-limit { color: var(--honey); font-weight: 500; }
+
+/* Spin animation for submit loading */
+@keyframes spinIcon {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.spin-icon { animation: spinIcon 1s linear infinite; }

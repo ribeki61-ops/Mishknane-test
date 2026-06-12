@@ -1,0 +1,132 @@
+/* ============================================================
+   temoignages.css — Section témoignages / avis des familles
+   ============================================================ */
+
+.section-temoignages {
+  background: var(--plum);
+  color: var(--text-on-dark);
+  position: relative;
+  overflow: hidden;
+}
+/* Halo décoratif */
+.section-temoignages::before {
+  content: '';
+  position: absolute;
+  top: -30%; right: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(212,166,166,0.12), transparent 65%);
+  pointer-events: none;
+}
+
+.section-temoignages .section-eyebrow { color: var(--rose-soft); }
+.section-temoignages h2 { color: var(--text-on-dark); }
+.section-temoignages .section-lede { color: rgba(250,245,236,0.75); }
+
+.temoignages-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.temoignage-card {
+  background: rgba(250,245,236,0.07);
+  border: 1px solid rgba(250,245,236,0.14);
+  border-radius: var(--r-lg);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: all var(--d-base) var(--ease);
+  position: relative;
+}
+.temoignage-card:hover {
+  background: rgba(250,245,236,0.12);
+  border-color: rgba(250,245,236,0.25);
+  transform: translateY(-4px);
+}
+
+/* Guillemet décoratif */
+.temoignage-card::before {
+  content: '\201C';
+  position: absolute;
+  top: 1.25rem; left: 1.75rem;
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 300;
+  color: rgba(212,166,166,0.25);
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Étoiles */
+.stars {
+  display: flex;
+  gap: 3px;
+  position: relative;
+  z-index: 1;
+}
+.star {
+  width: 16px; height: 16px;
+  color: var(--honey-light);
+}
+.star svg { width: 100%; height: 100%; fill: currentColor; }
+
+.temoignage-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(250,245,236,0.9);
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+.temoignage-auteur {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin-top: auto;
+}
+.auteur-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(250,245,236,0.15);
+  display: grid; place-items: center;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--rose-soft);
+  flex-shrink: 0;
+}
+.auteur-name {
+  display: block;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  color: var(--text-on-dark);
+}
+.auteur-context {
+  display: block;
+  font-size: 0.8125rem;
+  color: rgba(250,245,236,0.6);
+  margin-top: 2px;
+}
+
+/* Score global */
+.temoignages-score {
+  text-align: center;
+  margin-top: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.score-note {
+  font-family: var(--font-display);
+  font-size: clamp(3rem,5vw,4rem);
+  font-weight: 300;
+  color: var(--rose-soft);
+  line-height: 1;
+}
+.score-stars { display: flex; gap: 4px; }
+.score-stars .star { width: 22px; height: 22px; }
+.score-label { font-size: 0.875rem; color: rgba(250,245,236,0.65); margin-top: 0.25rem; }
